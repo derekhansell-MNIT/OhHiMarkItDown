@@ -6,7 +6,7 @@ Uses [MarkItDown](https://github.com/microsoft/markitdown) for the initial .md c
 # Prereqs
  - Only runs on Windows (for now)
  - Python 3.10+
- - Latest version of markitdown repo cloned into ./markitdown
+ - Latest version of markitdown repo cloned into ./markitdown. I include a version of MarkItDown in the repo, but it may not be up-to-date. app.py does check the version in this repo against the latest version available on the MarkitDown GitHub.
 
 # How to use
 
