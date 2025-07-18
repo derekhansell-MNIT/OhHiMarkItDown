@@ -1,7 +1,7 @@
 # OhHiMarkItDown
 
 My attempt at a vibe-coded (mostly by Copilot) pipeline to convert .docx and .pdf documents to markdown to facilitate a move from SharePoint Document Libraries to a GitHub knowledge repo.
-Uses [MarkItDown](https://github.com/microsoft/markitdown) for the initial .md conversion and other existing Python tools to complete image extraction and re-insertion.
+Uses [MarkItDown](https://github.com/microsoft/markitdown) for the initial .md conversion and other existing Python packages to complete image extraction and re-insertion.
 
 # Prereqs
  - Only runs on Windows (for now)
