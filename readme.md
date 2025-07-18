@@ -3,6 +3,11 @@
 My attempt at a vibe-coded (mostly by Copilot) pipeline to convert .docx and .pdf documents to markdown to facilitate a move from SharePoint Document Libraries to a GitHub knowledge repo.
 Uses [MarkItDown](https://github.com/microsoft/markitdown) for the initial .md conversion and other existing Python tools to complete image extraction and re-insertion.
 
+# Prereqs
+ - Only runs on Windows (for now)
+ - Python 3.10+
+ - Latest version of markitdown repo cloned into ./markitdown
+
 # How to use
 
 1) Clone repo
@@ -12,6 +17,16 @@ Uses [MarkItDown](https://github.com/microsoft/markitdown) for the initial .md c
    <img width="881" height="517" alt="image" src="https://github.com/user-attachments/assets/803d78b4-cfb9-4bf4-ab26-4536f57cb460" />
 
 # How it works
+
+ - Creates virtual environment directory ./venv in cloned repo diectory
+ - Configures pre-reqs in requirements.txt
+ - Installs markdown from ./markitdown
+ - Launches GUI app
+ - Recreates source directory folder structure in destination directory
+ - Runs MarkItDown recursively on .pdf and .docx files in the source directory and puts the output in the destination directory
+ - Assigns a UUID to each document
+ - Extracts images into folders in dest_dir/media that correspond to the UUID of each document and creates numbered placholder lines in the .md
+ - Attempts, with varying degrees of success, to reinsert the extracted images into the correct spot in each .md
 
 # Known issues
 
