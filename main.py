@@ -7,6 +7,8 @@ import uuid
 import sys
 from markitdown import MarkItDown
 
+logs_dir = Path("logs")
+
 def run_markitdown(file_path, output_path):
     try:
         md = MarkItDown(enable_plugins=False)
@@ -46,13 +48,13 @@ def convert_file(file_path, source_root, dest_root, status_callback=None):
 
     success = run_markitdown(file_path, md_path)
     if not success or not md_path.exists():
-        log_warning(dest_root / "conversion.log", f"Markdown NOT created for {file_path}")
+        log_warning(("logs") / "conversion.log", f"Markdown NOT created for {file_path}")
         return
 
     ext = file_path.suffix.lower()
     if ext == ".pdf":
-        extract_pdf_images(file_path, media_dir, file_uuid, md_path, dest_root / "image_warnings.log", dest_root / "image_processing.log")
+        extract_pdf_images(file_path, media_dir, file_uuid, md_path, Path("logs") / "image_warnings.log", Path("logs") / "image_processing.log")
     elif ext == ".docx":
-        extract_docx_images(file_path, media_dir, file_uuid, md_path, dest_root / "image_warnings.log", dest_root / "image_processing.log")
+        extract_docx_images(file_path, media_dir, file_uuid, md_path, Path("logs") / "image_warnings.log", Path("logs") / "image_processing.log")
 
-    log_info(dest_root / "conversion.log", f"[{file_uuid}] Converted: {file_path} -> {md_path}")
+    log_info(Path("logs") / "conversion.log", f"[{file_uuid}] Converted: {file_path} -> {md_path}")

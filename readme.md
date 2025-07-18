@@ -6,12 +6,13 @@ Uses [MarkItDown](https://github.com/microsoft/markitdown) for the initial .md c
 # Prereqs
  - Only runs on Windows (for now)
  - Python 3.10+
- - Latest version of markitdown repo cloned into ./markitdown. I include a version of MarkItDown in the repo, but it may not be up-to-date. app.py does check the version in this repo against the latest version available on the MarkitDown GitHub.
+ - Git for Windows
+ - Latest version of markitdown repo cloned into ./markitdown. Setup.py will attempt to do this for you.
 
 # How to use
 
 1) Clone repo
-2) Run init.py
+2) Run setup.py
 3) Select source and destination directories
 4) Click Run Conversion
    <img width="881" height="517" alt="image" src="https://github.com/user-attachments/assets/803d78b4-cfb9-4bf4-ab26-4536f57cb460" />

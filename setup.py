@@ -7,6 +7,22 @@ venv_dir = Path("venv")
 requirements = Path("requirements.txt")
 app_entry = Path("app.py")
 markitdown_path = Path("markitdown") / "packages" / "markitdown"
+logs_dir = Path("logs")
+logs_dir.mkdir(exist_ok=True)
+
+def clone_markitdown_repo():
+    repo_url = "https://github.com/microsoft/markitdown.git"
+    target_dir = Path("markitdown")
+
+    if target_dir.exists() and (target_dir / ".git").exists():
+        print("[*] MarkItDown repo already exists. Skipping clone.")
+    else:
+        print(f"[*] Cloning MarkItDown into {target_dir}...")
+        result = subprocess.run(["git", "clone", repo_url, str(target_dir)], capture_output=True, text=True)
+        print("stdout:\n", result.stdout)
+        print("stderr:\n", result.stderr)
+        if result.returncode != 0:
+            raise subprocess.CalledProcessError(result.returncode, result.args)
 
 def install_local_markitdown(pip_exe):
     
@@ -32,6 +48,7 @@ def create_venv():
     print("[*] Installing dependencies...")
     subprocess.run([str(pip_exe), "install", "-r", str(requirements)], check=True)
 
+    clone_markitdown_repo()
     install_local_markitdown(pip_exe)
 
 def run_app():
