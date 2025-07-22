@@ -1,0 +1,171 @@
+2025-07-18 14:09:57 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\Enterprise BIOS Updates.docx
+2025-07-18 14:09:57 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\17c812
+2025-07-18 14:09:57 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\17c812_tmp
+2025-07-18 14:09:57 - INFO: Skipped solid color image: C:\Users\eu01235141\markitdown\media\17c812_tmp\image1.jpeg
+2025-07-18 14:09:57 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\17c812\17c812-001.png
+2025-07-18 14:09:57 - INFO: Saved image 2: C:\Users\eu01235141\markitdown\media\17c812\17c812-002.png
+2025-07-18 14:09:57 - INFO: Saved image 3: C:\Users\eu01235141\markitdown\media\17c812\17c812-003.png
+2025-07-18 14:09:57 - INFO: Saved image 4: C:\Users\eu01235141\markitdown\media\17c812\17c812-004.png
+2025-07-18 14:09:57 - INFO: Saved image 5: C:\Users\eu01235141\markitdown\media\17c812\17c812-005.png
+2025-07-18 14:09:57 - INFO: Saved image 6: C:\Users\eu01235141\markitdown\media\17c812\17c812-006.png
+2025-07-18 14:09:57 - INFO: Injected image link 1: media/17c812/17c812-001.png
+2025-07-18 14:09:57 - INFO: Injected image link 2: media/17c812/17c812-002.png
+2025-07-18 14:09:57 - INFO: Injected image link 3: media/17c812/17c812-003.png
+2025-07-18 14:09:57 - INFO: Injected image link 4: media/17c812/17c812-004.png
+2025-07-18 14:09:57 - INFO: Injected image link 5: media/17c812/17c812-005.png
+2025-07-18 14:09:57 - INFO: Injected image link 6: media/17c812/17c812-006.png
+2025-07-18 14:09:57 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\enterprise-bios-updates.md
+2025-07-18 14:09:57 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\Getac BIOS Notes.docx
+2025-07-18 14:09:57 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\e59998
+2025-07-18 14:09:57 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\e59998_tmp
+2025-07-18 14:09:57 - INFO: Skipped solid color image: C:\Users\eu01235141\markitdown\media\e59998_tmp\image1.jpeg
+2025-07-18 14:09:57 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\e59998\e59998-001.png
+2025-07-18 14:09:57 - INFO: Saved image 2: C:\Users\eu01235141\markitdown\media\e59998\e59998-002.png
+2025-07-18 14:09:57 - INFO: Injected image link 1: media/e59998/e59998-001.png
+2025-07-18 14:09:57 - INFO: Injected image link 2: media/e59998/e59998-002.png
+2025-07-18 14:09:57 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\getac-bios-notes.md
+2025-07-18 14:09:57 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\Modified Driver Packs .docx
+2025-07-18 14:09:57 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\531ce3
+2025-07-18 14:09:57 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\531ce3_tmp
+2025-07-18 14:09:57 - INFO: Skipped solid color image: C:\Users\eu01235141\markitdown\media\531ce3_tmp\image1.jpeg
+2025-07-18 14:09:57 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\531ce3\531ce3-001.png
+2025-07-18 14:09:57 - INFO: Injected image link 1: media/531ce3/531ce3-001.png
+2025-07-18 14:09:57 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\modified-driver-packs-.md
+2025-07-18 14:09:58 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\SCConfigMgr Driver Automation Tool Configuration.docx
+2025-07-18 14:09:58 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\bf9bc7
+2025-07-18 14:09:58 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\bf9bc7_tmp
+2025-07-18 14:09:58 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\bf9bc7\bf9bc7-001.png
+2025-07-18 14:09:58 - INFO: Saved image 2: C:\Users\eu01235141\markitdown\media\bf9bc7\bf9bc7-002.png
+2025-07-18 14:09:58 - INFO: Saved image 3: C:\Users\eu01235141\markitdown\media\bf9bc7\bf9bc7-003.png
+2025-07-18 14:09:58 - INFO: Saved image 4: C:\Users\eu01235141\markitdown\media\bf9bc7\bf9bc7-004.png
+2025-07-18 14:09:58 - INFO: Saved image 5: C:\Users\eu01235141\markitdown\media\bf9bc7\bf9bc7-005.png
+2025-07-18 14:09:58 - INFO: Saved image 6: C:\Users\eu01235141\markitdown\media\bf9bc7\bf9bc7-006.png
+2025-07-18 14:09:58 - INFO: Saved image 7: C:\Users\eu01235141\markitdown\media\bf9bc7\bf9bc7-007.png
+2025-07-18 14:09:58 - INFO: Saved image 8: C:\Users\eu01235141\markitdown\media\bf9bc7\bf9bc7-008.png
+2025-07-18 14:09:58 - INFO: Saved image 9: C:\Users\eu01235141\markitdown\media\bf9bc7\bf9bc7-009.png
+2025-07-18 14:09:58 - INFO: Saved image 10: C:\Users\eu01235141\markitdown\media\bf9bc7\bf9bc7-010.png
+2025-07-18 14:09:58 - INFO: Injected image link 1: media/bf9bc7/bf9bc7-001.png
+2025-07-18 14:09:58 - INFO: Injected image link 2: media/bf9bc7/bf9bc7-002.png
+2025-07-18 14:09:58 - INFO: Injected image link 3: media/bf9bc7/bf9bc7-003.png
+2025-07-18 14:09:58 - INFO: Injected image link 4: media/bf9bc7/bf9bc7-004.png
+2025-07-18 14:09:58 - INFO: Injected image link 5: media/bf9bc7/bf9bc7-005.png
+2025-07-18 14:09:58 - INFO: Injected image link 6: media/bf9bc7/bf9bc7-006.png
+2025-07-18 14:09:58 - INFO: Injected image link 7: media/bf9bc7/bf9bc7-007.png
+2025-07-18 14:09:58 - INFO: Injected image link 8: media/bf9bc7/bf9bc7-008.png
+2025-07-18 14:09:58 - INFO: Injected image link 9: media/bf9bc7/bf9bc7-009.png
+2025-07-18 14:09:58 - INFO: Injected image link 10: media/bf9bc7/bf9bc7-010.png
+2025-07-18 14:09:58 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\scconfigmgr-driver-automation-tool-configuration.md
+2025-07-18 15:17:59 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\Enterprise BIOS Updates.docx
+2025-07-18 15:17:59 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\b686b5
+2025-07-18 15:17:59 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\b686b5_tmp
+2025-07-18 15:17:59 - INFO: Skipped solid color image: C:\Users\eu01235141\markitdown\media\b686b5_tmp\image1.jpeg
+2025-07-18 15:17:59 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\b686b5\b686b5-001.png
+2025-07-18 15:17:59 - INFO: Saved image 2: C:\Users\eu01235141\markitdown\media\b686b5\b686b5-002.png
+2025-07-18 15:17:59 - INFO: Saved image 3: C:\Users\eu01235141\markitdown\media\b686b5\b686b5-003.png
+2025-07-18 15:17:59 - INFO: Saved image 4: C:\Users\eu01235141\markitdown\media\b686b5\b686b5-004.png
+2025-07-18 15:17:59 - INFO: Saved image 5: C:\Users\eu01235141\markitdown\media\b686b5\b686b5-005.png
+2025-07-18 15:17:59 - INFO: Saved image 6: C:\Users\eu01235141\markitdown\media\b686b5\b686b5-006.png
+2025-07-18 15:17:59 - INFO: Injected image link 1: media/b686b5/b686b5-001.png
+2025-07-18 15:17:59 - INFO: Injected image link 2: media/b686b5/b686b5-002.png
+2025-07-18 15:17:59 - INFO: Injected image link 3: media/b686b5/b686b5-003.png
+2025-07-18 15:17:59 - INFO: Injected image link 4: media/b686b5/b686b5-004.png
+2025-07-18 15:17:59 - INFO: Injected image link 5: media/b686b5/b686b5-005.png
+2025-07-18 15:17:59 - INFO: Injected image link 6: media/b686b5/b686b5-006.png
+2025-07-18 15:17:59 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\enterprise-bios-updates.md
+2025-07-18 15:18:00 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\Getac BIOS Notes.docx
+2025-07-18 15:18:00 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\ca8781
+2025-07-18 15:18:00 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\ca8781_tmp
+2025-07-18 15:18:00 - INFO: Skipped solid color image: C:\Users\eu01235141\markitdown\media\ca8781_tmp\image1.jpeg
+2025-07-18 15:18:00 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\ca8781\ca8781-001.png
+2025-07-18 15:18:00 - INFO: Saved image 2: C:\Users\eu01235141\markitdown\media\ca8781\ca8781-002.png
+2025-07-18 15:18:00 - INFO: Injected image link 1: media/ca8781/ca8781-001.png
+2025-07-18 15:18:00 - INFO: Injected image link 2: media/ca8781/ca8781-002.png
+2025-07-18 15:18:00 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\getac-bios-notes.md
+2025-07-18 15:18:00 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\Modified Driver Packs .docx
+2025-07-18 15:18:00 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\fa3a3f
+2025-07-18 15:18:00 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\fa3a3f_tmp
+2025-07-18 15:18:00 - INFO: Skipped solid color image: C:\Users\eu01235141\markitdown\media\fa3a3f_tmp\image1.jpeg
+2025-07-18 15:18:00 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\fa3a3f\fa3a3f-001.png
+2025-07-18 15:18:00 - INFO: Injected image link 1: media/fa3a3f/fa3a3f-001.png
+2025-07-18 15:18:00 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\modified-driver-packs-.md
+2025-07-18 15:18:00 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\SCConfigMgr Driver Automation Tool Configuration.docx
+2025-07-18 15:18:00 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\bdb5d4
+2025-07-18 15:18:00 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\bdb5d4_tmp
+2025-07-18 15:18:00 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\bdb5d4\bdb5d4-001.png
+2025-07-18 15:18:00 - INFO: Saved image 2: C:\Users\eu01235141\markitdown\media\bdb5d4\bdb5d4-002.png
+2025-07-18 15:18:00 - INFO: Saved image 3: C:\Users\eu01235141\markitdown\media\bdb5d4\bdb5d4-003.png
+2025-07-18 15:18:00 - INFO: Saved image 4: C:\Users\eu01235141\markitdown\media\bdb5d4\bdb5d4-004.png
+2025-07-18 15:18:00 - INFO: Saved image 5: C:\Users\eu01235141\markitdown\media\bdb5d4\bdb5d4-005.png
+2025-07-18 15:18:00 - INFO: Saved image 6: C:\Users\eu01235141\markitdown\media\bdb5d4\bdb5d4-006.png
+2025-07-18 15:18:00 - INFO: Saved image 7: C:\Users\eu01235141\markitdown\media\bdb5d4\bdb5d4-007.png
+2025-07-18 15:18:00 - INFO: Saved image 8: C:\Users\eu01235141\markitdown\media\bdb5d4\bdb5d4-008.png
+2025-07-18 15:18:00 - INFO: Saved image 9: C:\Users\eu01235141\markitdown\media\bdb5d4\bdb5d4-009.png
+2025-07-18 15:18:00 - INFO: Saved image 10: C:\Users\eu01235141\markitdown\media\bdb5d4\bdb5d4-010.png
+2025-07-18 15:18:00 - INFO: Injected image link 1: media/bdb5d4/bdb5d4-001.png
+2025-07-18 15:18:00 - INFO: Injected image link 2: media/bdb5d4/bdb5d4-002.png
+2025-07-18 15:18:00 - INFO: Injected image link 3: media/bdb5d4/bdb5d4-003.png
+2025-07-18 15:18:00 - INFO: Injected image link 4: media/bdb5d4/bdb5d4-004.png
+2025-07-18 15:18:00 - INFO: Injected image link 5: media/bdb5d4/bdb5d4-005.png
+2025-07-18 15:18:00 - INFO: Injected image link 6: media/bdb5d4/bdb5d4-006.png
+2025-07-18 15:18:00 - INFO: Injected image link 7: media/bdb5d4/bdb5d4-007.png
+2025-07-18 15:18:00 - INFO: Injected image link 8: media/bdb5d4/bdb5d4-008.png
+2025-07-18 15:18:00 - INFO: Injected image link 9: media/bdb5d4/bdb5d4-009.png
+2025-07-18 15:18:00 - INFO: Injected image link 10: media/bdb5d4/bdb5d4-010.png
+2025-07-18 15:18:00 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\scconfigmgr-driver-automation-tool-configuration.md
+2025-07-18 15:18:24 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\Enterprise BIOS Updates.docx
+2025-07-18 15:18:24 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\ad0514
+2025-07-18 15:18:24 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\ad0514_tmp
+2025-07-18 15:18:24 - INFO: Skipped solid color image: C:\Users\eu01235141\markitdown\media\ad0514_tmp\image1.jpeg
+2025-07-18 15:18:24 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\ad0514\ad0514-001.png
+2025-07-18 15:18:24 - INFO: Saved image 2: C:\Users\eu01235141\markitdown\media\ad0514\ad0514-002.png
+2025-07-18 15:18:24 - INFO: Saved image 3: C:\Users\eu01235141\markitdown\media\ad0514\ad0514-003.png
+2025-07-18 15:18:24 - INFO: Saved image 4: C:\Users\eu01235141\markitdown\media\ad0514\ad0514-004.png
+2025-07-18 15:18:24 - INFO: Saved image 5: C:\Users\eu01235141\markitdown\media\ad0514\ad0514-005.png
+2025-07-18 15:18:24 - INFO: Saved image 6: C:\Users\eu01235141\markitdown\media\ad0514\ad0514-006.png
+2025-07-18 15:18:24 - INFO: Injected image link 1: media/ad0514/ad0514-001.png
+2025-07-18 15:18:24 - INFO: Injected image link 2: media/ad0514/ad0514-002.png
+2025-07-18 15:18:24 - INFO: Injected image link 3: media/ad0514/ad0514-003.png
+2025-07-18 15:18:24 - INFO: Injected image link 4: media/ad0514/ad0514-004.png
+2025-07-18 15:18:24 - INFO: Injected image link 5: media/ad0514/ad0514-005.png
+2025-07-18 15:18:24 - INFO: Injected image link 6: media/ad0514/ad0514-006.png
+2025-07-18 15:18:24 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\enterprise-bios-updates.md
+2025-07-18 15:18:24 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\Getac BIOS Notes.docx
+2025-07-18 15:18:24 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\f7385d
+2025-07-18 15:18:24 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\f7385d_tmp
+2025-07-18 15:18:24 - INFO: Skipped solid color image: C:\Users\eu01235141\markitdown\media\f7385d_tmp\image1.jpeg
+2025-07-18 15:18:24 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\f7385d\f7385d-001.png
+2025-07-18 15:18:24 - INFO: Saved image 2: C:\Users\eu01235141\markitdown\media\f7385d\f7385d-002.png
+2025-07-18 15:18:24 - INFO: Injected image link 1: media/f7385d/f7385d-001.png
+2025-07-18 15:18:24 - INFO: Injected image link 2: media/f7385d/f7385d-002.png
+2025-07-18 15:18:24 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\getac-bios-notes.md
+2025-07-18 15:18:25 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\Modified Driver Packs .docx
+2025-07-18 15:18:25 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\91866f
+2025-07-18 15:18:25 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\91866f_tmp
+2025-07-18 15:18:25 - INFO: Skipped solid color image: C:\Users\eu01235141\markitdown\media\91866f_tmp\image1.jpeg
+2025-07-18 15:18:25 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\91866f\91866f-001.png
+2025-07-18 15:18:25 - INFO: Injected image link 1: media/91866f/91866f-001.png
+2025-07-18 15:18:25 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\modified-driver-packs-.md
+2025-07-18 15:18:25 - INFO: Starting DOCX processing: C:\Users\eu01235141\State of Minnesota - MN365\Enterprise Endpoint Systems Management - Documents\OSD Documentation\Driver & Firmware Management\SCConfigMgr Driver Automation Tool Configuration.docx
+2025-07-18 15:18:25 - INFO: Media directory created: C:\Users\eu01235141\markitdown\media\78bcdb
+2025-07-18 15:18:25 - INFO: docx2txt processed images to temp dir: C:\Users\eu01235141\markitdown\media\78bcdb_tmp
+2025-07-18 15:18:25 - INFO: Saved image 1: C:\Users\eu01235141\markitdown\media\78bcdb\78bcdb-001.png
+2025-07-18 15:18:25 - INFO: Saved image 2: C:\Users\eu01235141\markitdown\media\78bcdb\78bcdb-002.png
+2025-07-18 15:18:25 - INFO: Saved image 3: C:\Users\eu01235141\markitdown\media\78bcdb\78bcdb-003.png
+2025-07-18 15:18:25 - INFO: Saved image 4: C:\Users\eu01235141\markitdown\media\78bcdb\78bcdb-004.png
+2025-07-18 15:18:25 - INFO: Saved image 5: C:\Users\eu01235141\markitdown\media\78bcdb\78bcdb-005.png
+2025-07-18 15:18:25 - INFO: Saved image 6: C:\Users\eu01235141\markitdown\media\78bcdb\78bcdb-006.png
+2025-07-18 15:18:25 - INFO: Saved image 7: C:\Users\eu01235141\markitdown\media\78bcdb\78bcdb-007.png
+2025-07-18 15:18:25 - INFO: Saved image 8: C:\Users\eu01235141\markitdown\media\78bcdb\78bcdb-008.png
+2025-07-18 15:18:25 - INFO: Saved image 9: C:\Users\eu01235141\markitdown\media\78bcdb\78bcdb-009.png
+2025-07-18 15:18:25 - INFO: Saved image 10: C:\Users\eu01235141\markitdown\media\78bcdb\78bcdb-010.png
+2025-07-18 15:18:25 - INFO: Injected image link 1: media/78bcdb/78bcdb-001.png
+2025-07-18 15:18:25 - INFO: Injected image link 2: media/78bcdb/78bcdb-002.png
+2025-07-18 15:18:25 - INFO: Injected image link 3: media/78bcdb/78bcdb-003.png
+2025-07-18 15:18:25 - INFO: Injected image link 4: media/78bcdb/78bcdb-004.png
+2025-07-18 15:18:25 - INFO: Injected image link 5: media/78bcdb/78bcdb-005.png
+2025-07-18 15:18:25 - INFO: Injected image link 6: media/78bcdb/78bcdb-006.png
+2025-07-18 15:18:25 - INFO: Injected image link 7: media/78bcdb/78bcdb-007.png
+2025-07-18 15:18:25 - INFO: Injected image link 8: media/78bcdb/78bcdb-008.png
+2025-07-18 15:18:25 - INFO: Injected image link 9: media/78bcdb/78bcdb-009.png
+2025-07-18 15:18:25 - INFO: Injected image link 10: media/78bcdb/78bcdb-010.png
+2025-07-18 15:18:25 - INFO: Completed image injection for: C:\Users\eu01235141\markitdown\scconfigmgr-driver-automation-tool-configuration.md

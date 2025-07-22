@@ -9,19 +9,19 @@ import os
 
 MAX_FILENAME_LENGTH = 50
 
-def check_markitdown_version(local_version_file="markitdown_version.txt"):
-    try:
-        response = requests.get("https://api.github.com/repos/microsoft/markitdown/releases/latest", timeout=5)
-        latest = response.json().get("tag_name", "").strip()
-        with open(local_version_file, "r", encoding="utf-8") as f:
-            local = f.read().strip()
-        if local != latest:
-            print(f"[!] MarkItDown version mismatch: local={local}, latest={latest}")
-            return False
-        return True
-    except Exception as e:
-        print(f"Version check failed: {e}")
-        return True
+# def check_markitdown_version(local_version_file="markitdown_version.txt"):
+#     try:
+#         response = requests.get("https://api.github.com/repos/microsoft/markitdown/releases/latest", timeout=5)
+#         latest = response.json().get("tag_name", "").strip()
+#         with open(local_version_file, "r", encoding="utf-8") as f:
+#             local = f.read().strip()
+#         if local != latest:
+#             print(f"[!] MarkItDown version mismatch: local={local}, latest={latest}")
+#             return False
+#         return True
+#     except Exception as e:
+#         print(f"Version check failed: {e}")
+#         return True
     
 def on_close():
     app.source_var.set("")
@@ -159,8 +159,8 @@ if __name__ == "__main__":
     root = tk.Tk()
 
     print("[*] Launching OhHiMarkItDown...")
-    if not check_markitdown_version():
-        messagebox.showwarning("Version Mismatch", "Your MarkItDown version is outdated. Consider updating.")
+    # if not check_markitdown_version():
+    #     messagebox.showwarning("Version Mismatch", "Your MarkItDown version is outdated. Consider updating.")
 
     app = OhHiMarkItDownApp(root)
     root.protocol("WM_DELETE_WINDOW", on_close)

@@ -1,15 +1,17 @@
 from pathlib import Path
 from extract_pdf import extract_pdf_images
 from extract_docx import extract_docx_images
-from utils import log_info, log_warning, format_filename, generate_uuid, ensure_directory
-import subprocess
+from utils import log_info, log_warning
 import uuid
-import sys
 from markitdown import MarkItDown
 
+# Centralize log configuration
 logs_dir = Path("logs")
+conversion_log = logs_dir / "conversion.log"
+image_warnings_log = logs_dir / "image_warnings.log"
+image_processing_log = logs_dir / "image_processing.log"
 
-def run_markitdown(file_path, output_path):
+def run_markitdown(file_path: Path, output_path: Path, log_path: Path):
     try:
         md = MarkItDown(enable_plugins=False)
         result = md.convert(str(file_path))
@@ -20,19 +22,23 @@ def run_markitdown(file_path, output_path):
 
         return True
     except Exception as e:
-        print(f"MarkItDown failed: {e}")
+        log_warning(log_path, f"MarkItDown failed for {file_path}: {e}")
         return False
 
 def convert_all(source_root: Path, dest_root: Path, status_callback=None):
+    # Ensure log directory exists before starting
+    logs_dir.mkdir(exist_ok=True)
     count = 0
     for file in source_root.rglob("*"):
         if file.suffix.lower() not in [".pdf", ".docx"]:
             continue
-        convert_file(file, source_root, dest_root, status_callback)
+        convert_file(file, source_root, dest_root, status_callback,
+                     conversion_log, image_warnings_log, image_processing_log)
         count += 1
     return count
 
-def convert_file(file_path, source_root, dest_root, status_callback=None):
+def convert_file(file_path: Path, source_root: Path, dest_root: Path, status_callback,
+                 conv_log: Path, warn_log: Path, proc_log: Path):
     print(f"Running MarkItDown on: {file_path}")
     relative_path = file_path.parent.relative_to(source_root)
     dest_dir = dest_root / relative_path
@@ -46,15 +52,14 @@ def convert_file(file_path, source_root, dest_root, status_callback=None):
     if status_callback:
         status_callback.set(f"Converting: {file_path.name}")
 
-    success = run_markitdown(file_path, md_path)
+    success = run_markitdown(file_path, md_path, conv_log)
     if not success or not md_path.exists():
-        log_warning(("logs") / "conversion.log", f"Markdown NOT created for {file_path}")
         return
 
     ext = file_path.suffix.lower()
     if ext == ".pdf":
-        extract_pdf_images(file_path, media_dir, file_uuid, md_path, Path("logs") / "image_warnings.log", Path("logs") / "image_processing.log")
+        extract_pdf_images(file_path, media_dir, file_uuid, md_path, warn_log, proc_log)
     elif ext == ".docx":
-        extract_docx_images(file_path, media_dir, file_uuid, md_path, Path("logs") / "image_warnings.log", Path("logs") / "image_processing.log")
+        extract_docx_images(file_path, media_dir, file_uuid, md_path, warn_log, proc_log)
 
-    log_info(Path("logs") / "conversion.log", f"[{file_uuid}] Converted: {file_path} -> {md_path}")
+    log_info(conv_log, f"[{file_uuid}] Converted: {file_path} -> {md_path}")

@@ -1,15 +1,6 @@
 # extract_pdf.py
 import os, fitz, sys
-from datetime import datetime
 from utils import log_info, log_warning, format_filename, generate_uuid, ensure_directory
-
-def log_warning(log_path, message):
-    with open(log_path, "a", encoding="utf-8") as f:
-        f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - WARNING: {message}\n")
-
-def log_info(log_path, message):
-    with open(log_path, "a", encoding="utf-8") as f:
-        f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - INFO: {message}\n")
 
 def extract_pdf_images(pdf_path, media_dir, uuid, md_path, warn_log, info_log):
     log_info(info_log, f"Starting PDF processing: {pdf_path}")

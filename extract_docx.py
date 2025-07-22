@@ -1,16 +1,7 @@
 # extract_docx.py
 import os, docx2txt, shutil, re, sys
 from PIL import Image
-from datetime import datetime
 from utils import log_info, log_warning, format_filename, generate_uuid, ensure_directory
-
-def log_warning(log_path, message):
-    with open(log_path, "a", encoding="utf-8") as f:
-        f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - WARNING: {message}\n")
-
-def log_info(log_path, message):
-    with open(log_path, "a", encoding="utf-8") as f:
-        f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - INFO: {message}\n")
 
 def split_embedded_images(line):
     # Find all Markdown image tags
