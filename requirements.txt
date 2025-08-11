@@ -2,3 +2,4 @@ pillow
 docx2txt
 PyMuPDF
 requests
+setuptools

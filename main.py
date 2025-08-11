@@ -1,9 +1,11 @@
+# main.py
 from pathlib import Path
-from extract_pdf import extract_pdf_images
-from extract_docx import extract_docx_images
+from extract_pdf import process_pdf
+from extract_docx import process_docx
 from utils import log_info, log_warning
 import uuid
 from markitdown import MarkItDown
+from marker.models import create_model_dict
 
 # Centralize log configuration
 logs_dir = Path("logs")
@@ -26,19 +28,35 @@ def run_markitdown(file_path: Path, output_path: Path, log_path: Path):
         return False
 
 def convert_all(source_root: Path, dest_root: Path, status_callback=None):
-    # Ensure log directory exists before starting
     logs_dir.mkdir(exist_ok=True)
     count = 0
+
+    model_dict = create_model_dict()  # ✅ Load Marker models once
+
     for file in source_root.rglob("*"):
         if file.suffix.lower() not in [".pdf", ".docx"]:
             continue
-        convert_file(file, source_root, dest_root, status_callback,
-                     conversion_log, image_warnings_log, image_processing_log)
+
+        if status_callback and status_callback.should_stop():
+            log_info(Path("logs") / "setup.log", "Conversion stopped by user.")
+            break
+
+        convert_file(
+            file_path=file,
+            source_root=source_root,
+            dest_root=dest_root,
+            status_callback=status_callback,
+            conv_log=conversion_log,
+            warn_log=image_warnings_log,
+            proc_log=image_processing_log,
+            model_dict=model_dict  # ✅ Pass shared models
+        )
         count += 1
+
     return count
 
 def convert_file(file_path: Path, source_root: Path, dest_root: Path, status_callback,
-                 conv_log: Path, warn_log: Path, proc_log: Path):
+                 conv_log: Path, warn_log: Path, proc_log: Path, model_dict):
     print(f"Running MarkItDown on: {file_path}")
     relative_path = file_path.parent.relative_to(source_root)
     dest_dir = dest_root / relative_path
@@ -58,8 +76,8 @@ def convert_file(file_path: Path, source_root: Path, dest_root: Path, status_cal
 
     ext = file_path.suffix.lower()
     if ext == ".pdf":
-        extract_pdf_images(file_path, media_dir, file_uuid, md_path, warn_log, proc_log)
+        process_pdf(file_path, media_dir, file_uuid, md_path, warn_log, conv_log, proc_log, model_dict=model_dict)
     elif ext == ".docx":
-        extract_docx_images(file_path, media_dir, file_uuid, md_path, warn_log, proc_log)
+        process_docx(file_path, media_dir, file_uuid, md_path, warn_log, proc_log)
 
     log_info(conv_log, f"[{file_uuid}] Converted: {file_path} -> {md_path}")
