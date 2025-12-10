@@ -7,9 +7,6 @@
 import subprocess
 import sys
 from pathlib import Path
-<<<<<<< Updated upstream
-from env_check import verify_venv_components, ensure_valid_environment
-=======
 
 from utils import (
     log_info,
@@ -27,7 +24,6 @@ from utils import (
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
->>>>>>> Stashed changes
 
 venv_dir = Path("venv")
 requirements = Path("requirements.txt")
@@ -37,42 +33,8 @@ logs_dir = Path("logs")
 logs_dir.mkdir(exist_ok=True)
 setup_log = logs_dir / "setup.log"
 
-<<<<<<< Updated upstream
-markitdown_path = Path("markitdown") / "packages" / "markitdown"
-marker_path = Path("marker")  # Local clone target for marker-pdf
-
-def install_packages(pip_exe, packages):
-    for pkg in packages:
-        log_and_print(setup_log, f"[*] Installing package: {pkg}")
-        result = subprocess.run([str(pip_exe), "install", pkg], capture_output=True, text=True)
-        log_info(setup_log, f"{pkg} stdout:\n{result.stdout.strip()}")
-        log_warning(setup_log, f"{pkg} stderr:\n{result.stderr.strip()}")
-        if result.returncode != 0:
-            raise subprocess.CalledProcessError(result.returncode, result.args)
-
-def clone_repo(name, url, dest_path):
-    if dest_path.exists():
-        print(f"[*] {name} already exists at {dest_path}. Removing and recloning...")
-        try:
-            shutil.rmtree(dest_path)
-        except Exception as e:
-            print(f"[!] Failed to remove {dest_path}: {e}")
-            raise
-    try:
-        result = subprocess.run(
-            ["git", "clone", url, str(dest_path)],
-            check=True,
-            capture_output=True,
-            text=True
-        )
-        print(f"[✓] Cloned {name} successfully.")
-    except subprocess.CalledProcessError as e:
-        print(f"[✗] Failed to clone {name}. Git said:\n{e.stderr}")
-        raise
-=======
 markitdown_repo_path = Path("markitdown")
 markitdown_pkg_path = markitdown_repo_path / "packages" / "markitdown"
->>>>>>> Stashed changes
 
 
 # ---------------------------------------------------------------------------
@@ -119,10 +81,6 @@ def create_venv():
         setup_log
     )
 
-<<<<<<< Updated upstream
-    clone_repo("MarkItDown", "https://github.com/microsoft/markitdown.git", Path("markitdown"))
-    clone_repo("Marker", "https://github.com/vikparuchuri/marker-pdf.git", marker_path)
-=======
     # Install MarkItDown (editable)
     install_local_package(
         pip_exe,
@@ -130,7 +88,6 @@ def create_venv():
         extras="docx",
         setup_log=setup_log
     )
->>>>>>> Stashed changes
 
 
     log_info(setup_log, "Setup complete.")
@@ -151,18 +108,5 @@ def run_app():
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-<<<<<<< Updated upstream
-    if not venv_dir.exists():
-        log_and_print(setup_log, "[setup] Virtual environment not found — creating...")
-        create_venv()
-
-    if not ensure_valid_environment(venv_dir, requirements, setup_log):
-        log_and_print(setup_log, "[setup] Setup failed — environment not usable")
-        sys.exit(1)
-
-    log_and_print(setup_log, "[setup] Environment verified — launching application")
-    run_app()
-=======
     create_venv()
     run_app()
->>>>>>> Stashed changes

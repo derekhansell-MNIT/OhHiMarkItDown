@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
-=======
 # utils.py
 import datetime
->>>>>>> Stashed changes
 import os
 import sys
 import subprocess

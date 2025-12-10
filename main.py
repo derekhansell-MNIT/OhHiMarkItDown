@@ -14,11 +14,6 @@ def convert_all(source_root: Path, dest_root: Path, status_callback=None):
     logs_dir.mkdir(exist_ok=True)
     count = 0
 
-<<<<<<< Updated upstream
-    model_dict = create_model_dict()  # ✅ Load Marker models once
-
-=======
->>>>>>> Stashed changes
     for file in source_root.rglob("*"):
         # DOCX-only pipeline
         if file.suffix.lower() != ".docx":
