@@ -1,5 +1,11 @@
+# requirements.txt
 pillow
 docx2txt
+<<<<<<< Updated upstream
 PyMuPDF
 requests
 setuptools
+=======
+setuptools
+psutil
+>>>>>>> Stashed changes

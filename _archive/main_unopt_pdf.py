@@ -1,7 +1,8 @@
 # main.py
 from pathlib import Path
+from extract_pdf import process_pdf
 from extract_docx import process_docx
-from utils import log_info
+from utils import log_info, log_warning
 import uuid
 
 # Centralize log configuration
@@ -14,14 +15,10 @@ def convert_all(source_root: Path, dest_root: Path, status_callback=None):
     logs_dir.mkdir(exist_ok=True)
     count = 0
 
-<<<<<<< Updated upstream
-    model_dict = create_model_dict()  # ✅ Load Marker models once
+    # ✅ Removed: model_dict = create_model_dict()
 
-=======
->>>>>>> Stashed changes
     for file in source_root.rglob("*"):
-        # DOCX-only pipeline
-        if file.suffix.lower() != ".docx":
+        if file.suffix.lower() not in [".pdf", ".docx"]:
             continue
 
         if status_callback and status_callback.should_stop():
@@ -41,29 +38,24 @@ def convert_all(source_root: Path, dest_root: Path, status_callback=None):
 
     return count
 
-
 def convert_file(file_path: Path, source_root: Path, dest_root: Path, status_callback,
                  conv_log: Path, warn_log: Path, proc_log: Path):
-
-    # Recreate folder structure
     relative_path = file_path.parent.relative_to(source_root)
     dest_dir = dest_root / relative_path
     dest_dir.mkdir(parents=True, exist_ok=True)
 
-    # Markdown output path
     base_name = file_path.stem.lower().replace(" ", "-")
     md_path = dest_dir / f"{base_name}.md"
-
-    # UUID for this DOCX
     file_uuid = uuid.uuid4().hex[:6].lower()
-
-    # /media/<UUID>
     media_dir = dest_root / "media" / file_uuid
 
     if status_callback:
         status_callback.set(f"Converting: {file_path.name}")
 
-    # DOCX-only
-    process_docx(file_path, media_dir, file_uuid, md_path, warn_log, proc_log)
+    ext = file_path.suffix.lower()
+    if ext == ".pdf":
+        process_pdf(file_path, media_dir, file_uuid, md_path, warn_log, conv_log, proc_log)
+    elif ext == ".docx":
+        process_docx(file_path, media_dir, file_uuid, md_path, warn_log, proc_log)
 
     log_info(conv_log, f"[{file_uuid}] Converted: {file_path} -> {md_path}")

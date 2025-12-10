@@ -1,18 +1,43 @@
-#setup.py
-# This script sets up the environment for OhHiMarkItDown, including creating a virtual environment,
-# installing dependencies, and initializing Marker models.
-import subprocess, sys, os, json, shutil
-from utils import log_info, log_warning, log_and_print, get_conversion_mode
+# setup.py
+# Environment setup for OhHiMarkItDown:
+# - Create virtual environment
+# - Install dependencies
+# - Clone and install MarkItDown (local editable install)
+
+import subprocess
+import sys
 from pathlib import Path
+<<<<<<< Updated upstream
 from env_check import verify_venv_components, ensure_valid_environment
+=======
+
+from utils import (
+    log_info,
+    log_warning,
+    log_and_print,
+    clone_repo,
+    install_packages,
+    install_local_package
+)
+
+#from torch_setup import install_torch_stack
+#from marker_setup import initialize_marker
+
+
+# ---------------------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------------------
+>>>>>>> Stashed changes
 
 venv_dir = Path("venv")
 requirements = Path("requirements.txt")
 app_entry = Path("app.py")
-logs_dir = Path("logs")
-setup_log = logs_dir / "setup.log"
-logs_dir.mkdir(exist_ok=True)
 
+logs_dir = Path("logs")
+logs_dir.mkdir(exist_ok=True)
+setup_log = logs_dir / "setup.log"
+
+<<<<<<< Updated upstream
 markitdown_path = Path("markitdown") / "packages" / "markitdown"
 marker_path = Path("marker")  # Local clone target for marker-pdf
 
@@ -44,54 +69,15 @@ def clone_repo(name, url, dest_path):
     except subprocess.CalledProcessError as e:
         print(f"[✗] Failed to clone {name}. Git said:\n{e.stderr}")
         raise
+=======
+markitdown_repo_path = Path("markitdown")
+markitdown_pkg_path = markitdown_repo_path / "packages" / "markitdown"
+>>>>>>> Stashed changes
 
 
-def install_local_package(pip_exe, path, name):
-    if path.exists():
-        log_and_print(setup_log, f"[*] Installing local {name}...")
-        result = subprocess.run([str(pip_exe), "install", "-e", str(path)], capture_output=True, text=True)
-        log_info(setup_log, f"{name} install stdout:\n{result.stdout}")
-        log_warning(setup_log, f"{name} install stderr:\n{result.stderr}")
-        if result.returncode != 0:
-            raise subprocess.CalledProcessError(result.returncode, result.args)
-    else:
-        log_and_print(setup_log, f"[!] {name} install path not found: {path}")
-        raise FileNotFoundError(f"{name} install path missing")
-
-def initialize_marker_models(python_exe):
-    code = r"""
-import sys, json
-try:
-    from marker.models import create_model_dict
-    model_names = sorted(list(create_model_dict().keys()))
-    payload = {"ok": True, "models": model_names}
-except Exception as e:
-    payload = {"ok": False, "error": str(e)}
-payload["sys_path"] = sys.path
-try:
-    import pkg_resources
-    payload["packages"] = [str(d) for d in pkg_resources.working_set]
-except:
-    pass
-print(json.dumps(payload))
-"""
-    result = subprocess.run([str(python_exe), "-c", code], capture_output=True, text=True)
-    if result.returncode != 0:
-        log_warning(setup_log, f"Marker init subprocess failed (rc={result.returncode}): {result.stderr.strip()}")
-        raise RuntimeError("Failed to initialize Marker models")
-
-    try:
-        payload = json.loads(result.stdout.strip())
-    except Exception as e:
-        log_warning(setup_log, f"Marker init JSON error: {e}\nstdout:\n{result.stdout}\nstderr:\n{result.stderr}")
-        raise RuntimeError("Failed to parse Marker model output")
-
-    if not payload.get("ok"):
-        log_warning(setup_log, f"Marker model error: {payload.get('error')}")
-        raise RuntimeError("Marker model initialization failed")
-
-    log_info(setup_log, f"Marker models initialized:\n{json.dumps(payload, indent=2)}")
-    log_and_print(setup_log, f"[*] Marker models initialized: {', '.join(payload['models'])}")
+# ---------------------------------------------------------------------------
+# Virtual environment creation
+# ---------------------------------------------------------------------------
 
 def create_venv():
     log_and_print(setup_log, "[*] Creating virtual environment...")
@@ -100,31 +86,72 @@ def create_venv():
     python_exe = venv_dir / "Scripts" / "python.exe"
     pip_exe = venv_dir / "Scripts" / "pip.exe"
 
-    if not requirements.exists():
-        log_and_print(setup_log, "[!] Missing requirements.txt")
-        raise FileNotFoundError("requirements.txt not found")
-
+    # Upgrade pip
+    log_and_print(setup_log, "[*] Upgrading pip in the virtual environment...")
+    result = subprocess.run(
+        [str(python_exe), "-m", "pip", "install", "--upgrade", "pip"],
+        capture_output=True,
+        text=True
+    )
+    log_info(setup_log, f"pip upgrade stdout:\n{result.stdout.strip()}")
+    log_warning(setup_log, f"pip upgrade stderr:\n{result.stderr.strip()}")
+    if result.returncode != 0:
+        raise subprocess.CalledProcessError(result.returncode, result.args)
+    
+    # Install correct PyTorch stack (GPU or CPU)
+    #log_and_print(setup_log, "[*] Installing PyTorch stack (GPU-aware)...")
+    #install_torch_stack(python_exe, pip_exe, setup_log)
+    
+    # Install requirements.txt
     with requirements.open() as f:
-        packages = [line.strip() for line in f if line.strip() and not line.startswith("#")]
+        packages = [
+            line.strip()
+            for line in f
+            if line.strip() and not line.startswith("#")
+        ]
+    install_packages(pip_exe, packages, setup_log)
 
-    install_packages(pip_exe, packages)
+    # Clone MarkItDown repo
+    clone_repo(
+        "MarkItDown",
+        "https://github.com/microsoft/markitdown.git",
+        markitdown_repo_path,
+        setup_log
+    )
 
+<<<<<<< Updated upstream
     clone_repo("MarkItDown", "https://github.com/microsoft/markitdown.git", Path("markitdown"))
     clone_repo("Marker", "https://github.com/vikparuchuri/marker-pdf.git", marker_path)
+=======
+    # Install MarkItDown (editable)
+    install_local_package(
+        pip_exe,
+        markitdown_pkg_path,
+        extras="docx",
+        setup_log=setup_log
+    )
+>>>>>>> Stashed changes
 
-    install_local_package(pip_exe, markitdown_path, "MarkItDown")
-    install_local_package(pip_exe, marker_path, "Marker")
 
-    initialize_marker_models(python_exe)
-    mode = get_conversion_mode()
-    log_info(setup_log, f"Conversion mode: {mode}")
+    log_info(setup_log, "Setup complete.")
+
+
+# ---------------------------------------------------------------------------
+# Launch application
+# ---------------------------------------------------------------------------
 
 def run_app():
     python_exe = venv_dir / "Scripts" / "python.exe"
     log_and_print(setup_log, "[*] Launching app...")
     subprocess.run([str(python_exe), str(app_entry)])
 
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
 if __name__ == "__main__":
+<<<<<<< Updated upstream
     if not venv_dir.exists():
         log_and_print(setup_log, "[setup] Virtual environment not found — creating...")
         create_venv()
@@ -135,3 +162,7 @@ if __name__ == "__main__":
 
     log_and_print(setup_log, "[setup] Environment verified — launching application")
     run_app()
+=======
+    create_venv()
+    run_app()
+>>>>>>> Stashed changes

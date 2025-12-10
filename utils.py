@@ -1,47 +1,125 @@
+<<<<<<< Updated upstream
+=======
+# utils.py
+import datetime
+>>>>>>> Stashed changes
 import os
-from datetime import datetime
-from pathlib import Path
+import sys
+import subprocess
 
-def log_info(log_path, message):
-    _write_log(log_path, "INFO", message)
+def timestamp() -> str:
+    """Return a UTC timestamp string for logs."""
+    return datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
-def log_warning(log_path, message):
-    _write_log(log_path, "WARNING", message)
+def log_info(log_file, message: str):
+    """Log informational messages to file and stdout."""
+    line = f"[INFO] {timestamp()} {message}"
+    print(line)
+    with open(log_file, "a", encoding="utf-8") as f:
+        f.write(line + "\n")
 
-def log_and_print(log_file: Path, message: str):
-    print(message)
-    log_info(log_file, message)
+def log_warning(log_file, message: str):
+    """Log warning messages to file and stdout."""
+    line = f"[WARN] {timestamp()} {message}"
+    print(line, file=sys.stderr)
+    with open(log_file, "a", encoding="utf-8") as f:
+        f.write(line + "\n")
 
-def _write_log(log_path, level, message):
-    log_path = Path(log_path)
-    log_path.parent.mkdir(parents=True, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open(log_path, "a", encoding="utf-8") as f:
-        f.write(f"{timestamp} - {level}: {message}\n")
+def log_and_print(log_file, message: str):
+    """Log and print a message (neutral severity)."""
+    line = f"{timestamp()} {message}"
+    print(line)
+    with open(log_file, "a", encoding="utf-8") as f:
+        f.write(line + "\n")
 
-def format_filename(name: str) -> str:
-    """Convert a filename to lowercase, dash-separated format."""
-    return name.lower().replace(" ", "-")
 
-def generate_uuid(length=6) -> str:
-    """Generate a short UUID string."""
-    import uuid
-    return uuid.uuid4().hex[:length].lower()
+def install_packages(pip_exe, packages, setup_log):
+    for pkg in packages:
+        log_and_print(setup_log, f"[*] Installing package: {pkg}")
+        result = subprocess.run(
+            [str(pip_exe), "install", pkg],
+            capture_output=True,
+            text=True
+        )
+        log_info(setup_log, f"{pkg} stdout:\n{result.stdout.strip()}")
+        log_warning(setup_log, f"{pkg} stderr:\n{result.stderr.strip()}")
+        if result.returncode != 0:
+            raise subprocess.CalledProcessError(result.returncode, result.args)
+        
 
-def ensure_directory(path: Path):
-    """Create a directory if it doesn't exist."""
-    path.mkdir(parents=True, exist_ok=True)
+def install_local_package(pip_exe, path, extras, setup_log):
+    if not path.exists():
+        log_and_print(setup_log, f"[!] Local package path not found: {path}")
+        raise FileNotFoundError(f"Local package path missing")
 
-def check_gpu_available():
-    try:
-        import torch
-        if torch.cuda.is_available():
-            return True
-        else:
-            return False
-    except ImportError:
-        return None  # torch not installed
+    extras_suffix = f"[{extras}]" if extras else ""
+    target = f"{path}{extras_suffix}"
+
+    log_and_print(setup_log, f"[*] Installing local package: {target}")
+    result = subprocess.run(
+        [str(pip_exe), "install", "-e", target],
+        capture_output=True,
+        text=True
+    )
+
+    log_info(setup_log, f"Local install stdout:\n{result.stdout}")
+    log_warning(setup_log, f"Local install stderr:\n{result.stderr}")
+
+    if result.returncode != 0:
+        raise subprocess.CalledProcessError(result.returncode, result.args)
+
     
-def get_conversion_mode():
-    gpu_status = check_gpu_available()
-    return "GPU" if gpu_status else "CPU"
+        
+def run_pip(pip_exe, args, setup_log):
+    """Run pip with full argument control and logging."""
+    result = subprocess.run(
+        [str(pip_exe)] + args,
+        capture_output=True,
+        text=True
+    )
+
+    if result.stdout.strip():
+        log_info(setup_log, result.stdout.strip())
+    if result.stderr.strip():
+        log_warning(setup_log, result.stderr.strip())
+
+    if result.returncode != 0:
+        raise subprocess.CalledProcessError(result.returncode, result.args)
+
+
+def run_git(args, cwd):
+    return subprocess.run(
+        ["git"] + args,
+        cwd=cwd,
+        check=True,
+        capture_output=True,
+        text=True
+    )
+
+
+def clone_repo(name, url, dest_path, setup_log):
+    if not dest_path.exists():
+        log_and_print(setup_log, f"[*] Cloning {name} from {url}...")
+        run_git(["clone", url, str(dest_path)], cwd=dest_path.parent)
+        return
+
+    log_and_print(setup_log, f"[INFO] {name} already exists at {dest_path}. Pulling updates...")
+    try:
+        result = subprocess.run(
+            ["git", "remote", "show", "origin"],
+            cwd=dest_path,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+
+        default_branch = "main"
+        for line in result.stdout.splitlines():
+            if "HEAD branch:" in line:
+                default_branch = line.split(":")[1].strip()
+                break
+
+        run_git(["pull", "origin", default_branch], cwd=dest_path)
+        log_and_print(setup_log, f"[INFO] Updated {name}.")
+    except subprocess.CalledProcessError as e:
+        log_warning(setup_log, f"[ERROR] Git pull failed:\n{e.stderr}")

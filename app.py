@@ -4,7 +4,7 @@ from pathlib import Path
 from main import convert_all
 import threading, time, requests
 import os
-from utils import get_conversion_mode
+
 
 MAX_FILENAME_LENGTH = 50
 
@@ -22,7 +22,6 @@ class OhHiMarkItDownApp:
         self.style = ttk.Style()
         self.dark_mode = True
         self.stop_requested = False
-        self.conversion_mode = get_conversion_mode()
         self.configure_style()
 
         self.source_var = tk.StringVar()
@@ -30,8 +29,7 @@ class OhHiMarkItDownApp:
         self.status_var = tk.StringVar(value="Ready")
         self.count_var = tk.StringVar(value="")
         self.time_var = tk.StringVar(value="")
-        self.mode_var = tk.StringVar(value=f"Marker PDF Conversion mode: {self.conversion_mode}")
-
+ 
         self.build_ui()
         self.load_previous_paths()
 
@@ -42,8 +40,6 @@ class OhHiMarkItDownApp:
         self.style.configure("TButton", foreground="white", background="#333", padding=6)
         self.style.configure("TEntry", fieldbackground="#2e2e2e", foreground="white")
 
-        mode_color = "#4caf50" if self.conversion_mode == "GPU" else "#ff9800"
-        self.style.configure("Mode.TLabel", foreground=mode_color, background="#1e1e1e")
 
     def build_ui(self):
         self.container = ttk.Frame(self.root, style="Container.TFrame")
@@ -71,8 +67,6 @@ class OhHiMarkItDownApp:
 
         ttk.Button(self.container, text="Toggle Dark Mode", command=self.toggle_theme).grid(row=7, column=1, pady=5)
         ttk.Button(self.container, text="Open Logs Folder", command=self.open_logs_folder).grid(row=8, column=1, pady=5)
-
-        ttk.Label(self.container, textvariable=self.mode_var, style="Mode.TLabel", anchor="center", justify="center").grid(row=9, column=1, sticky="ew", pady=(5, 2))
 
     def select_source(self):
         folder = filedialog.askdirectory()
@@ -154,7 +148,6 @@ class OhHiMarkItDownApp:
         self.style.configure("TLabel", background=bg, foreground=fg)
         self.style.configure("TButton", background=button_bg, foreground=fg)
         self.style.configure("TEntry", fieldbackground=entry_bg, foreground=fg)
-        self.style.configure("Mode.TLabel", background=bg)
 
     def load_previous_paths(self):
         logs_dir = Path("logs")
@@ -179,7 +172,7 @@ class OhHiMarkItDownApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    print("[*] Launching OhHiMarkItDown...")
+#    print("[*] Launching OhHiMarkItDown...")
     app = OhHiMarkItDownApp(root)
     root.protocol("WM_DELETE_WINDOW", on_close)
     root.mainloop()
