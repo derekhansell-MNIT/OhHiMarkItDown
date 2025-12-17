@@ -2,7 +2,7 @@
 
 venv/
 marikitdown/
-__pycache__/
+__pycache__/*
 .vscode/
 logs/temp_images/
 logs/conversion.log
