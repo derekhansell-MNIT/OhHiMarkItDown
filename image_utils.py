@@ -40,7 +40,7 @@ def save_and_rename_images(src_dir: Path, media_root: Path, uuid: str, md_path: 
             shutil.move(str(src), dest)
 
             # Correct relative path: media/<UUID>/<UUID>-001.jpg
-            rel_path = Path(os.path.relpath(dest, md_path.parent)).as_posix()
+            rel_path = f"/.media/{uuid}/{dest.name}"
             rel_paths.append(rel_path)
 
             log_info(info_log, f"Saved image {counter}: {dest}")

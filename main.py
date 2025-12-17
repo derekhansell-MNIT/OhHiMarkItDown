@@ -53,7 +53,7 @@ def convert_file(file_path: Path, source_root: Path, dest_root: Path, status_cal
     file_uuid = uuid.uuid4().hex[:6].lower()
 
     # /media/<UUID>
-    media_dir = dest_root / "media" / file_uuid
+    media_dir = dest_root / ".media" / file_uuid
 
     if status_callback:
         status_callback.set(f"Converting: {file_path.name}")

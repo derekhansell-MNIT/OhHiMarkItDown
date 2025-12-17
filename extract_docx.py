@@ -35,7 +35,7 @@ def process_docx(docx_path: Path, media_dir: Path, uuid: str,
         docx2txt.process(str(docx_path), str(temp_dir))
         log_info(info_log, f"docx2txt processed images to temp dir: {temp_dir}")
 
-        # ✅ Pass media_root, not media_dir
+        # Pass media_root, not media_dir
         rel_paths = save_and_rename_images(
             temp_dir,
             media_root,
