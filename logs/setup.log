@@ -13043,3 +13043,89 @@ Successfully installed markitdown-0.1.4
 
 [INFO] 2025-12-15 17:29:50 Setup complete.
 2025-12-15 17:29:50 [*] Launching app...
+2025-12-17 16:42:06 [*] Creating virtual environment...
+2025-12-17 16:42:11 [*] Upgrading pip in the virtual environment...
+[INFO] 2025-12-17 16:42:15 pip upgrade stdout:
+Requirement already satisfied: pip in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (25.3)
+[WARN] 2025-12-17 16:42:15 pip upgrade stderr:
+
+2025-12-17 16:42:15 [*] Installing package: pillow
+[INFO] 2025-12-17 16:42:17 pillow stdout:
+Requirement already satisfied: pillow in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (12.0.0)
+[WARN] 2025-12-17 16:42:17 pillow stderr:
+
+2025-12-17 16:42:17 [*] Installing package: docx2txt
+[INFO] 2025-12-17 16:42:20 docx2txt stdout:
+Requirement already satisfied: docx2txt in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (0.9)
+[WARN] 2025-12-17 16:42:20 docx2txt stderr:
+
+2025-12-17 16:42:20 [*] Installing package: setuptools
+[INFO] 2025-12-17 16:42:22 setuptools stdout:
+Requirement already satisfied: setuptools in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (80.9.0)
+[WARN] 2025-12-17 16:42:22 setuptools stderr:
+
+2025-12-17 16:42:22 [*] Installing package: psutil
+[INFO] 2025-12-17 16:42:23 psutil stdout:
+Requirement already satisfied: psutil in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (7.1.3)
+[WARN] 2025-12-17 16:42:23 psutil stderr:
+
+2025-12-17 16:42:23 [INFO] MarkItDown already exists at markitdown. Pulling updates...
+2025-12-17 16:42:26 [INFO] Updated MarkItDown.
+2025-12-17 16:42:26 [*] Installing local package: markitdown\packages\markitdown[docx]
+[INFO] 2025-12-17 16:42:36 Local install stdout:
+Obtaining file:///C:/Users/eu01235141/Github/OhHiMarkItDown/markitdown/packages/markitdown
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: beautifulsoup4 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from markitdown==0.1.4) (4.14.3)
+Requirement already satisfied: charset-normalizer in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from markitdown==0.1.4) (3.4.4)
+Requirement already satisfied: defusedxml in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from markitdown==0.1.4) (0.7.1)
+Requirement already satisfied: magika~=0.6.1 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from markitdown==0.1.4) (0.6.3)
+Requirement already satisfied: markdownify in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from markitdown==0.1.4) (1.2.2)
+Requirement already satisfied: onnxruntime<=1.20.1 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from markitdown==0.1.4) (1.20.1)
+Requirement already satisfied: requests in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from markitdown==0.1.4) (2.32.5)
+Requirement already satisfied: lxml in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from markitdown==0.1.4) (6.0.2)
+Requirement already satisfied: mammoth~=1.11.0 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from markitdown==0.1.4) (1.11.0)
+Requirement already satisfied: click>=8.1.7 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from magika~=0.6.1->markitdown==0.1.4) (8.3.1)
+Requirement already satisfied: numpy>=2.1.0 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from magika~=0.6.1->markitdown==0.1.4) (2.3.5)
+Requirement already satisfied: python-dotenv>=1.0.1 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from magika~=0.6.1->markitdown==0.1.4) (1.2.1)
+Requirement already satisfied: cobble<0.2,>=0.1.3 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from mammoth~=1.11.0->markitdown==0.1.4) (0.1.4)
+Requirement already satisfied: coloredlogs in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from onnxruntime<=1.20.1->markitdown==0.1.4) (15.0.1)
+Requirement already satisfied: flatbuffers in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from onnxruntime<=1.20.1->markitdown==0.1.4) (25.9.23)
+Requirement already satisfied: packaging in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from onnxruntime<=1.20.1->markitdown==0.1.4) (25.0)
+Requirement already satisfied: protobuf in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from onnxruntime<=1.20.1->markitdown==0.1.4) (6.33.2)
+Requirement already satisfied: sympy in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from onnxruntime<=1.20.1->markitdown==0.1.4) (1.14.0)
+Requirement already satisfied: colorama in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from click>=8.1.7->magika~=0.6.1->markitdown==0.1.4) (0.4.6)
+Requirement already satisfied: soupsieve>=1.6.1 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from beautifulsoup4->markitdown==0.1.4) (2.8)
+Requirement already satisfied: typing-extensions>=4.0.0 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from beautifulsoup4->markitdown==0.1.4) (4.15.0)
+Requirement already satisfied: humanfriendly>=9.1 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from coloredlogs->onnxruntime<=1.20.1->markitdown==0.1.4) (10.0)
+Requirement already satisfied: pyreadline3 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from humanfriendly>=9.1->coloredlogs->onnxruntime<=1.20.1->markitdown==0.1.4) (3.5.4)
+Requirement already satisfied: six<2,>=1.15 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from markdownify->markitdown==0.1.4) (1.17.0)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from requests->markitdown==0.1.4) (3.11)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from requests->markitdown==0.1.4) (2.6.1)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from requests->markitdown==0.1.4) (2025.11.12)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in c:\users\eu01235141\github\ohhimarkitdown\venv\lib\site-packages (from sympy->onnxruntime<=1.20.1->markitdown==0.1.4) (1.3.0)
+Building wheels for collected packages: markitdown
+  Building editable for markitdown (pyproject.toml): started
+  Building editable for markitdown (pyproject.toml): finished with status 'done'
+  Created wheel for markitdown: filename=markitdown-0.1.4-py3-none-any.whl size=2468 sha256=a1433b69576758f2b65f4840b4155e85375849bd594f875b85162f8d32f15b4e
+  Stored in directory: C:\Users\eu01235141\AppData\Local\Temp\pip-ephem-wheel-cache-ummaoctx\wheels\15\44\2b\0b4e20e944fb5d795fd2529ea335d0017d0cff927aa149cdfd
+Successfully built markitdown
+Installing collected packages: markitdown
+  Attempting uninstall: markitdown
+    Found existing installation: markitdown 0.1.4
+    Uninstalling markitdown-0.1.4:
+      Successfully uninstalled markitdown-0.1.4
+Successfully installed markitdown-0.1.4
+
+[WARN] 2025-12-17 16:42:36 Local install stderr:
+
+[INFO] 2025-12-17 16:42:36 Setup complete.
+2025-12-17 16:42:36 [*] Launching app...

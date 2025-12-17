@@ -1,0 +1,11 @@
+# .gitignore
+
+marikitdown/
+__pycache__/
+.vscode/
+logs/temp_images/
+logs/conversion.log
+logs/image_processing.log
+logs/image_warnings.log
+logs/last_paths.txt
+logs/setup.log
