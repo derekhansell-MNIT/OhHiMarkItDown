@@ -1,5 +1,6 @@
 # .gitignore
 
+venv/
 marikitdown/
 __pycache__/
 .vscode/
